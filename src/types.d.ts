@@ -3,7 +3,7 @@ export type User = {
   userId?: string;
   password?: string;
   status?: boolean;
-  image?: string
+  image?: string;
 };
 
 export type AuthContextType = {
@@ -29,21 +29,22 @@ export type AuthContextType = {
 };
 
 export type Oferts = {
-  price?: number;
-  id?: number;
+  image?: string;
+  price: number;
+  id: string;
   description?: string;
 };
 
 export type Desserts = {
-  price?: number;
-  id?: number;
-  name?: string;
+  price: number;
+  id: string;
+  description?: string;
   imagen?: string;
 };
 
 export type Gastronomics = {
-  price?: number;
-  id?: number;
+  price: number;
+  id: string;
   description?: string;
   imagen?: string;
 };
@@ -73,3 +74,22 @@ export type Events = {
   description?: string;
   imagen?: string;
 };
+
+export interface OrderItem {
+  id: string;
+  price: number;
+  quantity: number;
+  pending: boolean;
+  ofert: Oferts;
+  gastronomic: Gastronomics;
+  dessert: Desserts;
+}
+
+export interface Order {
+  totalAmount: number;
+  id: string;
+  _count: {
+    orderItems: number;
+  };
+  orderItems: OrderItem[];
+}

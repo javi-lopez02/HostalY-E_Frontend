@@ -1,12 +1,39 @@
 import { FC } from "react";
+import { toast } from "sonner";
+import { addItemDessertRequest } from "../../services/order";
+import AuthUser from "../../pages/auth/AuthUser";
+import { useAuth } from "../../context/auth.context";
+import { useDisclosure } from "@nextui-org/react";
 
 interface Desserts {
+  id: string;
   name: string | undefined;
   price: number | undefined;
   image: string | undefined;
 }
 
-const DessertsCard: FC<Desserts> = ({ name, price, image }) => {
+const DessertsCard: FC<Desserts> = ({ id, name, price, image }) => {
+  const { isAuth } = useAuth();
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+  const handleClikAddProduct = () => {
+    if (!isAuth) {
+      onOpen();
+      return;
+    }
+    toast.promise(addItemDessertRequest(id, 1), {
+      loading: "Loading...",
+      success: (res) => {
+        if (res.status !== 200) {
+          toast.warning(
+            `Aviso: ${res.data.message || "Hubo un problema con la solicitud."}`
+          );
+          return "La operación no fue completamente exitosa.";
+        }
+        return `${res.data.message}`;
+      },
+      error: "Error al añadir un producto al carrito.",
+    });
+  };
   return (
     <div className="border border-gray-200 bg-white p-6 shadow-sm rounded-3xl ">
       <div className="h-40 w-full">
@@ -23,11 +50,12 @@ const DessertsCard: FC<Desserts> = ({ name, price, image }) => {
           </p>
 
           <button
+            onClick={handleClikAddProduct}
             type="button"
             className="inline-flex items-center rounded-lg bg-blue-800 px-3 py-2.5 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus:ring-4  focus:ring-blue-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
           >
             <>
-            <svg
+              <svg
                 className="-ms-2 me-2 h-5 w-5"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +80,11 @@ const DessertsCard: FC<Desserts> = ({ name, price, image }) => {
           </button>
         </div>
       </div>
-      {/* <AuthUser isOpen={isOpen} onOpenChange={onOpenChange} onClose={onClose}></AuthUser> */}
+      <AuthUser
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        onClose={onClose}
+      ></AuthUser>{" "}
     </div>
   );
 };

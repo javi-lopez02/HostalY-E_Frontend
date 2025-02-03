@@ -16,13 +16,14 @@ import Snacks from "./pages/Snacks";
 import Gallery from "./pages/Gallery";
 import Events from "./pages/Events";
 import ContactUs from "./pages/ContactUs";
+import CarShop from "./pages/CarShop";
 
 function App() {
   return (
     <NextUIProvider>
       <BrowserRouter>
         <AuthProvider>
-          <Toaster richColors expand={true}/>
+          <Toaster richColors expand={true} />
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
@@ -39,7 +40,9 @@ function App() {
               <Route path="/events" element={<Events />} />
               <Route path="/contact" element={<ContactUs />} />
 
-              <Route element={<ProtectedRoutes />}></Route>
+              <Route element={<ProtectedRoutes />}>
+                <Route path="/carShop" element={<CarShop />} />
+              </Route>
             </Route>
           </Routes>
         </AuthProvider>

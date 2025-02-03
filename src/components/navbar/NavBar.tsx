@@ -2,6 +2,7 @@ import { Link, Outlet } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { FaBowlFood } from "react-icons/fa6";
 import { GiTicket } from "react-icons/gi";
+import { TiShoppingCart } from "react-icons/ti";
 import { PiBowlFoodFill } from "react-icons/pi";
 import { RiGalleryFill } from "react-icons/ri";
 import { BiSolidDrink } from "react-icons/bi";
@@ -94,27 +95,59 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="flex w-auto">
-            <div className="hidden xl:flex font-semibold text-lg">
-              <div className="hidden xl:flex lg:items-center font-semibold text-lg">
-                {isAuth && <Avatar />}
-                {!isAuth && (
-                  <button
-                    onClick={onOpen}
-                    className="mr-5 ml-5 px-3 rounded-md bg-slate-900 text-white font-bold"
-                  >
-                    {" "}
-                    SingIn
-                  </button>
-                )}
+          <div className="flex w-auto gap-1">
+            {isAuth && (
+              <div className="hidden lg:flex font-semibold text-lg">
+                <Link
+                  to="/carShop"
+                  className="sm:p-3 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer"
+                >
+                  <TiShoppingCart className="min-h-6 min-w-6" />
+                </Link>
               </div>
+            )}
+            <div className="hidden xl:flex lg:items-center font-semibold text-lg">
+              {isAuth && <Avatar />}
+              {!isAuth && (
+                <button
+                  onClick={onOpen}
+                  className="mr-5 ml-5 px-3 rounded-md bg-slate-900 text-white font-bold"
+                >
+                  {" "}
+                  SingIn
+                </button>
+              )}
             </div>
           </div>
         </div>
 
         {/* Boton Menu */}
         <div className="xl:hidden flex items-center">
-          <ul className="mr-2">
+          <ul className="mr-2 flex items-center">
+            {isAuth && (
+              <>
+                <Link
+                  to="/carShop"
+                  className="sm:p-3  hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer"
+                >
+                  <li className="p-2 text-gray-900 rounded-lg outline-none hover:text-blue-500">
+                    <TiShoppingCart className="min-h-6 min-w-6" />
+                  </li>
+                </Link>
+                <li className="p-2 text-gray-900 rounded-lg outline-none hover:text-blue-500">
+                  <Avatar />
+                </li>
+              </>
+            )}
+            {!isAuth && (
+              <button
+                onClick={onOpen}
+                className="mr-5 ml-5 px-3 rounded-md bg-slate-900 text-white font-bold"
+              >
+                {" "}
+                SingIn
+              </button>
+            )}
             <li className="p-2 text-gray-900 rounded-lg outline-none hover:text-blue-500">
               <DrawerSideBar />
             </li>

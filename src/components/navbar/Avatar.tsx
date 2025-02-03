@@ -18,7 +18,7 @@ const Avatar = () => {
       <PopoverTrigger>
         <button
           type="button"
-          className="p-1 flex items-center gap-1 hover:text-blue-500 duration-200 cursor-pointer mr-2 "
+          className="flex items-center hover:text-blue-500 duration-200 cursor-pointer md:mr-4 "
           id="user-menu-button"
           aria-expanded="false"
           data-dropdown-toggle="dropdown"

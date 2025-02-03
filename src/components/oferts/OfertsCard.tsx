@@ -1,11 +1,38 @@
 import { FC } from "react";
+import { toast } from "sonner";
+import { addItemOfertRequest } from "../../services/order";
+import { useAuth } from "../../context/auth.context";
+import { useDisclosure } from "@nextui-org/react";
+import AuthUser from "../../pages/auth/AuthUser";
 
 interface Oferts {
+  id: string;
   description: string | undefined;
   price: number | undefined;
 }
 
-const OfertsCard: FC<Oferts> = ({ description, price }) => {
+const OfertsCard: FC<Oferts> = ({ id, description, price }) => {
+  const { isAuth } = useAuth();
+  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+  const handleClikAddProduct = () => {
+    if (!isAuth) {
+      onOpen();
+      return;
+    }
+    toast.promise(addItemOfertRequest(id, 1), {
+      loading: "Loading...",
+      success: (res) => {
+        if (res.status !== 200) {
+          toast.warning(
+            `Aviso: ${res.data.message || "Hubo un problema con la solicitud."}`
+          );
+          return "La operación no fue completamente exitosa.";
+        }
+        return `${res.data.message}`;
+      },
+      error: "Error al añadir un producto al carrito.",
+    });
+  };
   return (
     <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm ">
       <div className="">
@@ -24,6 +51,7 @@ const OfertsCard: FC<Oferts> = ({ description, price }) => {
 
         <div className="mt-4 flex items-center justify-center">
           <button
+            onClick={handleClikAddProduct}
             type="button"
             className="inline-flex items-center rounded-lg bg-blue-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-4  focus:ring-blue-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
           >
@@ -53,7 +81,11 @@ const OfertsCard: FC<Oferts> = ({ description, price }) => {
           </button>
         </div>
       </div>
-      {/* <AuthUser isOpen={isOpen} onOpenChange={onOpenChange} onClose={onClose}></AuthUser> */}
+      <AuthUser
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        onClose={onClose}
+      ></AuthUser>
     </div>
   );
 };
