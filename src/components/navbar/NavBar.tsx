@@ -9,7 +9,7 @@ import { BiSolidDrink } from "react-icons/bi";
 import { GrGallery } from "react-icons/gr";
 import { IoFastFoodSharp } from "react-icons/io5";
 import { useAuth } from "../../context/auth.context";
-import { useDisclosure } from "@nextui-org/react";
+import { useDisclosure } from "@heroui/react";
 import { MdContacts } from "react-icons/md";
 import AuthUser from "../../pages/auth/AuthUser";
 import DrawerSideBar from "./DrawerSideBar";

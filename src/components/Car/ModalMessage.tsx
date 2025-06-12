@@ -13,7 +13,7 @@ import {
   TableColumn,
   TableHeader,
   TableRow,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import React, { FC, useMemo, useState } from "react";
 import { OrderItem } from "../../types";
 import { useAuth } from "../../context/auth.context";

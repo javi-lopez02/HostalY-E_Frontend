@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { toast } from "sonner";
 import { addItemGastronomicRequest } from "../../services/order";
-import { useDisclosure } from "@nextui-org/react";
+import { useDisclosure } from "@heroui/react";
 import { useAuth } from "../../context/auth.context";
 import AuthUser from "../../pages/auth/AuthUser";
 

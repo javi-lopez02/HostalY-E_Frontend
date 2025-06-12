@@ -1,5 +1,5 @@
 import { FaTimes } from "react-icons/fa";
-import { useDisclosure } from "@nextui-org/react";
+import { useDisclosure } from "@heroui/react";
 import { Oferts, OrderItem } from "../../types";
 import { deleteOrderItemRequest } from "../../services/order";
 import ModalDelete from "./ModalDelete";

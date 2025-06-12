@@ -3,7 +3,7 @@ import { toast } from "sonner";
 import { addItemDessertRequest } from "../../services/order";
 import AuthUser from "../../pages/auth/AuthUser";
 import { useAuth } from "../../context/auth.context";
-import { useDisclosure } from "@nextui-org/react";
+import { useDisclosure } from "@heroui/react";
 
 interface Desserts {
   id: string;

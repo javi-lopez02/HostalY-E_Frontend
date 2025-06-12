@@ -2,7 +2,7 @@ import { FC } from "react";
 import { toast } from "sonner";
 import { addItemOfertRequest } from "../../services/order";
 import { useAuth } from "../../context/auth.context";
-import { useDisclosure } from "@nextui-org/react";
+import { useDisclosure } from "@heroui/react";
 import AuthUser from "../../pages/auth/AuthUser";
 
 interface Oferts {

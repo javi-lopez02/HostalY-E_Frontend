@@ -1,4 +1,4 @@
-import { Image, useDisclosure } from "@nextui-org/react";
+import { Image, useDisclosure } from "@heroui/react";
 import { FC } from "react";
 import ImagePreview from "../ImagePreview";
 

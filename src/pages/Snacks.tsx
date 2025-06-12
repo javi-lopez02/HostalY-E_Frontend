@@ -1,7 +1,7 @@
 import { toast } from "sonner";
 import SnacksCard from "../components/snacks/SnacksCard";
 import useSnacks from "../customHooks/useSnacks";
-import { Spinner } from "@nextui-org/react";
+import { Spinner } from "@heroui/react";
 
 export default function Snacks() {
   const { snacks, error, loading } = useSnacks();

@@ -3,7 +3,7 @@ import {
   Modal,
   ModalBody,
   ModalContent,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { FC } from "react";
 
 interface Props {

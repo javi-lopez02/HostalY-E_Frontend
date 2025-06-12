@@ -1,4 +1,4 @@
-import { Spinner } from "@nextui-org/react";
+import { Spinner } from "@heroui/react";
 import GastronomicCard from "../components/gastronomics/GastronomicCard";
 import useGastronomics from "../customHooks/useGastronomics";
 import { toast } from "sonner";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
-import { Input, useDisclosure } from "@nextui-org/react";
+import { Input, useDisclosure } from "@heroui/react";
 import { Desserts, Gastronomics, OrderItem } from "../../types";
 import { deleteOrderItemRequest } from "../../services/order";
 import ModalDelete from "./ModalDelete";

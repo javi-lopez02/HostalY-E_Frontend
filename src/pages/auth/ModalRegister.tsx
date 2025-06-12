@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../../context/auth.context";
-import { Button, Checkbox, Input, Link, ModalBody, ModalFooter, ModalHeader } from "@nextui-org/react";
+import { Button, Checkbox, Input, Link, ModalBody, ModalFooter, ModalHeader } from "@heroui/react";
 import { BiLock, BiUser } from "react-icons/bi";
 
 function ModalRegister({ onClose, setIsRegister }: { onClose: () => void, setIsRegister: (value: boolean) => void }) {

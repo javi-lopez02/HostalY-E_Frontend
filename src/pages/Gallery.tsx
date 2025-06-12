@@ -1,4 +1,4 @@
-import { Spinner } from "@nextui-org/react";
+import { Spinner } from "@heroui/react";
 import GalleryCard from "../components/gallery/GalleryCard";
 import useGallery from "../customHooks/useGallery";
 import { toast } from "sonner";

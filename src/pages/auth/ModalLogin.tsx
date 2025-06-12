@@ -6,7 +6,7 @@ import {
   Checkbox,
   Input,
   Link,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import { useEffect, useRef, useState } from "react";
 import { BiLock, BiUser } from "react-icons/bi";
 import { useAuth } from "../../context/auth.context";

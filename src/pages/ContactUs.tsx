@@ -1,4 +1,4 @@
-import { Button, Form, Input, Spinner, Textarea } from "@nextui-org/react";
+import { Button, Form, Input, Spinner, Textarea } from "@heroui/react";
 import { FaAudioDescription, FaPhone, FaUser } from "react-icons/fa";
 import "../index.css";
 import { useState } from "react";

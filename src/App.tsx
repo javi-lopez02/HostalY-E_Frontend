@@ -5,7 +5,7 @@ import Navbar from "./components/navbar/NavBar";
 import Home from "./pages/Home";
 import { ProtectedRoutes } from "./components/ProtectedRoutes";
 import { AuthProvider } from "./context/auth.context";
-import { NextUIProvider } from "@nextui-org/react";
+import { HeroUIProvider } from "@heroui/react";
 import Page404 from "./pages/404Page";
 import { Toaster } from "sonner";
 import Oferts from "./pages/Oferts";
@@ -20,7 +20,7 @@ import CarShop from "./pages/CarShop";
 
 function App() {
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       <BrowserRouter>
         <AuthProvider>
           <Toaster richColors expand={true} />
@@ -47,7 +47,7 @@ function App() {
           </Routes>
         </AuthProvider>
       </BrowserRouter>
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 
